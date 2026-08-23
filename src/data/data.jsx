@@ -14,9 +14,9 @@ export const links = [
     name: "Indian Cinema",
     href: "/indian-movies"
   },
-  {
-    id:3,
-    name: "Malayalam Cinema",
-    href: "/malayalam-movies"
-  }
+  // {
+  //   id:3,
+  //   name: "Malayalam Cinema",
+  //   href: "/malayalam-movies"
+  // }
 ];

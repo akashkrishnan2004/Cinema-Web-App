@@ -1,9 +1,10 @@
 import { Check, Heart, Share2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { links } from "../data/data";
 import { useState } from "react";
 
 export default function Footer() {
+
   // Share the link
   const [copied, setCopied] = useState(false);
 
@@ -69,7 +70,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-semibold mb-6">Quick Links</h3>
 
-            <ul className="space-y-4">
+            {/* <ul className="space-y-4">
               {links.map((link) => (
                 <li key={link.name}>
                   <a
@@ -80,11 +81,18 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
+
+            <div className=" flex flex-col space-y-4">
+              {links.map((link) => (
+                <NavLink key={link.id} to={link.href} className="text-gray-300 hover:text-red-500 transition" >
+                  {link.name}
+                </NavLink>
+              ))}
+            </div>
           </div>
 
           {/* Social */}
-
           <div>
             <h3 className="text-2xl font-semibold mb-6">Connect</h3>
 
