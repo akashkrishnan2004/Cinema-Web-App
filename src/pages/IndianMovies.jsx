@@ -42,10 +42,7 @@ function IndianMovies() {
 
       const data = await getIndianMovies(nextPage);
 
-      setMovies((prevMovies) => [
-        ...prevMovies,
-        ...(data.results || []),
-      ]);
+      setMovies((prevMovies) => [...prevMovies, ...(data.results || [])]);
 
       setPage(nextPage);
     } catch (error) {
@@ -62,11 +59,8 @@ function IndianMovies() {
   return (
     <main className="min-h-screen bg-black px-6 py-10 text-white">
       <div className="mx-auto max-w-7xl">
-
         <div className="mb-8">
-          <h1 className="text-3xl font-bold md:text-4xl">
-            🇮🇳 Indian Cinema
-          </h1>
+          <h1 className="text-3xl font-bold md:text-4xl">🇮🇳 Indian Cinema</h1>
 
           <p className="mt-2 text-zinc-400">
             Discover movies from Indian cinema.
@@ -98,7 +92,6 @@ function IndianMovies() {
             </button>
           </div>
         )}
-
       </div>
     </main>
   );

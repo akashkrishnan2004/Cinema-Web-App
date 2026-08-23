@@ -1,4 +1,4 @@
-import { Check, Clapperboard, Heart, Share2 } from "lucide-react";
+import { Check, Heart, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { links } from "../data/data";
 import { useState } from "react";
@@ -135,10 +135,9 @@ export default function Footer() {
           </p>
 
           <p className="flex items-center gap-2 text-gray-400 md:text-xs">
-            Made
+            Made by
+            <span className=" text-red-500 md:text-xs ">Akash</span>with
             <Heart size={15} color="#ff0000" />
-             by
-            <span className=" text-red-500 md:text-xs ">Akash</span>{" "}
             {/* <FaHeart className="text-red-500 md:text-xs" /> */}
           </p>
         </div>

@@ -81,23 +81,6 @@ export const getTrendingMovie = async () => {
   return data.results[0];
 };
 
-// export const getMovieDetails = async (movieId) => {
-//   const response = await fetch(
-//     `${BASE_URL}/movie/${movieId}?language=en-US`,
-//     options,
-//   );
-
-//   const data = await response.json();
-
-//   console.log("TMDB Movie Details:", data);
-
-//   if (!response.ok) {
-//     throw new Error(data.status_message || "Failed to fetch movie details");
-//   }
-
-//   return data;
-// };
-
 export const getMovieDetails = async (movieId) => {
   const response = await fetch(
     `${BASE_URL}/movie/${movieId}?language=en-US&append_to_response=credits,videos`,
@@ -140,16 +123,3 @@ export const getAllMovies = async (page = 1) => {
 
   return response.json();
 };
-
-// export const getIndianMovies = async (page = 1) => {
-//   const response = await fetch(
-//     `${BASE_URL}/discover/movie?language=en-US&region=IN&sort_by=popularity.desc&page=${page}`,
-//     options,
-//   );
-
-//   if (!response.ok) {
-//     throw new Error("Failed to fetch Indian movies");
-//   }
-
-//   return response.json();
-// };

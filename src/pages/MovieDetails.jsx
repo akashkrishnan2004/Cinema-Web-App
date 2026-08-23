@@ -1,15 +1,3 @@
-// function MovieDetails() {
-//   return (
-//     <div className="flex min-h-screen items-center justify-center bg-black">
-//       <h1 className="text-5xl font-bold text-red-500">
-//         MOVIE DETAILS PAGE
-//       </h1>
-//     </div>
-//   );
-// }
-
-// export default MovieDetails;
-
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Star, Clock, CalendarDays } from "lucide-react";
@@ -123,7 +111,7 @@ function MovieDetails() {
                 </span>
 
                 <span className="flex items-center gap-1 text-zinc-400">
-                  <CalendarDays size={17}/>
+                  <CalendarDays size={17} />
                   {movie.release_date
                     ? new Date(movie.release_date).getFullYear()
                     : "N/A"}
@@ -204,19 +192,6 @@ function MovieDetails() {
         </div>
       </section>
 
-      {/* Crew */}
-      {/* <section className="mx-auto max-w-7xl px-6 py-12">
-        <div className="mb-6">
-            <h2 className="text-2xl font-bold">Crew</h2>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                {
-                    movie.credits?.crews?.slice(0,12).map((person) => (
-                        <CastCard key={person.credit_id} person={person} />
-                    ))
-                }
-            </div>
-        </div>
-      </section> */}
       {/* Crew */}
       <section className="mx-auto max-w-7xl px-6 py-12">
         <div className="mb-6">

@@ -20,8 +20,6 @@ function Navbar() {
           to="/"
           className="text-2xl font-bold tracking-tight flex items-center justify-center"
         >
-          {/* <span className="text-white">Cine</span>
-          <span className="text-red-500">Scope</span> */}
           {/* <span>
             <Clapperboard size={35} className="text-red-500" />
           </span>

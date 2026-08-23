@@ -5,7 +5,7 @@ function CrewCard({ person }) {
 
   return (
     <div className="group overflow-hidden rounded-xl bg-zinc-900">
-      <div className="aspect-[2/3] overflow-hidden">
+      <div className="aspect-2/3 overflow-hidden">
         <img
           src={imageUrl}
           alt={person.name}
