@@ -25,7 +25,7 @@ function Navbar() {
           </span>
           <span className="text-white">Cinema</span>
           <span className="text-red-500">Peedika</span> */}
-          <img src="logo2.svg" alt="logo" className="h-10" />
+          <img src="/public/logo2.svg" alt="logo" className="h-10" />
         </Link>
 
         {/* Desktop Navigation */}

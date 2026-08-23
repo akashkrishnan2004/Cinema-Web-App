@@ -57,7 +57,7 @@ export default function Footer() {
               </span>
               <span className="text-white">Cinema</span>
               <span className="text-red-500">Peedika</span> */}
-              <img src="logo2.svg" alt="logo" className="h-16" />
+              <img src="/logo2.svg" alt="logo" className="h-16" />
             </Link>
 
             <p className="mt-6 leading-8 text-gray-300">

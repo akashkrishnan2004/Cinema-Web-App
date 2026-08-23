@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Star, Clock, CalendarDays } from "lucide-react";
 
-import { getMovieDetails } from "../services/tmdb";
+import {
+  getIndianCertification,
+  getMovieDetails,
+  getMovieTrailer,
+} from "../services/tmdb";
 
 import Loader from "../components/Loader";
 import CastCard from "../components/CastCard";
@@ -10,28 +14,48 @@ import CrewCard from "../components/CrewCard";
 
 function MovieDetails() {
   const { id } = useParams();
+  const USD_TO_INR = 95.7;
 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [certification, setCertification] = useState(null);
+  const [trailer, setTrailer] = useState(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        console.log("Movie ID:", id);
+        setLoading(true);
 
         const data = await getMovieDetails(id);
 
-        console.log("Movie Data:", data);
-
         setMovie(data);
+
+        const trailerData = await getMovieTrailer(id);
+        // console.log(trailerData);
+
+        setTrailer(trailerData);
       } catch (error) {
-        console.error("Movie details error:", error);
+        console.error(error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchMovie();
+  }, [id]);
+
+  useEffect(() => {
+    const fetchCertification = async () => {
+      try {
+        const certificationData = await getIndianCertification(id);
+        setCertification(certificationData);
+        // console.log(certificationData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchCertification();
   }, [id]);
 
   if (loading) {
@@ -123,6 +147,18 @@ function MovieDetails() {
                     {movie.runtime} min
                   </span>
                 )}
+
+                {certification && (
+                  <span
+                    className={`rounded border px-2 py-1 text-sm font-semibold ${
+                      certification === "A"
+                        ? "border-red-500 bg-red-500/10 text-red-500"
+                        : "border-zinc-600 text-zinc-300"
+                    }`}
+                  >
+                    {certification}
+                  </span>
+                )}
               </div>
 
               {/* Genres */}
@@ -168,14 +204,61 @@ function MovieDetails() {
             <p className="mt-2 font-semibold">{movie.status}</p>
           </div>
 
-          <div className="rounded-xl bg-zinc-900 p-5">
+          {/* <div className="rounded-xl bg-zinc-900 p-5">
             <p className="text-sm text-zinc-500">Budget</p>
             <p className="mt-2 font-semibold">
               {movie.budget ? `$${movie.budget.toLocaleString()}` : "N/A"}
             </p>
+          </div> */}
+
+          <div className="rounded-xl bg-zinc-900 p-5">
+            <p className="text-sm text-zinc-500">Budget</p>
+            <p className="mt-2 font-semibold">
+              {movie.budget
+                ? `${Math.round(movie.budget * USD_TO_INR).toLocaleString("en-IN")} ₹`
+                : "N/A"}
+            </p>
+          </div>
+
+          {/* <div className="rounded-xl bg-zinc-900 p-5">
+            <p className="text-sm text-zinc-500">Collection</p>
+            <p className="mt-2 font-semibold">{movie.budget}</p>
+          </div> */}
+
+          <div className="rounded-xl bg-zinc-900 p-5">
+            <p className="text-sm text-zinc-500">Box Office</p>
+            <p className="mt-2 font-semibold">
+              {movie.revenue
+                ? `${Math.round(movie.revenue * USD_TO_INR).toLocaleString("en-IN")} ₹`
+                : "N/A"}
+            </p>
           </div>
         </div>
       </section>
+
+      {trailer && (
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold">Official Trailer</h2>
+
+            <p className="mt-1 text-sm text-zinc-500">
+              Watch the official trailer
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-xl overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-2xl">
+            <div className="aspect-video">
+              <iframe
+                className="h-full w-full"
+                src={`https://www.youtube.com/embed/${trailer.key}`}
+                title={trailer.name}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Cast */}
       <section className="mx-auto max-w-7xl px-6 py-12">

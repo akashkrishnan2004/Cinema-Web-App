@@ -123,3 +123,57 @@ export const getAllMovies = async (page = 1) => {
 
   return response.json();
 };
+
+export const getMovieCertification = async (movieId) => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}/release_dates`,
+    options,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch certification");
+  }
+
+  const data = await response.json();
+
+  return data.results;
+};
+
+export const getIndianCertification = async (movieId) => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}/release_dates`,
+    options,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch certification");
+  }
+
+  const data = await response.json();
+
+  const india = data.results.find((country) => country.iso_3166_1 === "IN");
+
+  return india?.release_dates?.[0]?.certification || null;
+};
+
+export const getMovieTrailer = async (movieId) => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}/videos?language=en-US`,
+    options,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch movie videos");
+  }
+
+  const data = await response.json();
+
+  const trailer = data.results?.find(
+    (video) =>
+      video.site === "YouTube" &&
+      video.type === "Trailer" &&
+      video.official === true,
+  );
+
+  return trailer || null;
+};

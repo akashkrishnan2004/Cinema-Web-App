@@ -12,6 +12,7 @@ function Hero() {
       try {
         const data = await getTrendingMovie();
         setMovie(data);
+        // console.log(data);
       } catch (error) {
         console.error("Hero error:", error);
       }
@@ -75,10 +76,10 @@ function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <button className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 font-semibold text-black transition hover:bg-zinc-200">
+            {/* <button className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 font-semibold text-black transition hover:bg-zinc-200">
               <Play size={18} fill="currentColor" />
               Watch Trailer
-            </button>
+            </button> */}
 
             <Link
               to={`/movie/${movie.id}`}
