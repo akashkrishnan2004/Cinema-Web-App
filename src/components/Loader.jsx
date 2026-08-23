@@ -11,10 +11,11 @@ function Loader({ text = "Loading..." }) {
         </div>
 
         {/* Logo */}
-        <h1 className="text-3xl font-bold tracking-tight">
+        {/* <h1 className="text-3xl font-bold tracking-tight">
           <span className="text-white">Cinema</span>
           <span className="text-red-500">Peedika</span>
-        </h1>
+        </h1> */}
+        <img src="logo2.svg" alt="" className="h-16"/>
 
         {/* Loading Text */}
         <p className="mt-3 animate-pulse text-sm text-zinc-400">
