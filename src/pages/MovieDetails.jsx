@@ -307,7 +307,7 @@ function MovieDetails() {
           Production Companies
         </h2>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
           {movie.production_companies?.map((company) => (
             <div
               key={company.id}
