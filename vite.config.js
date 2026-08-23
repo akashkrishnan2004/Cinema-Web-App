@@ -7,7 +7,6 @@
 //   plugins: [react(), tailwindcss()],
 // });
 
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
@@ -21,15 +20,23 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
 
+      includeAssets: [
+        "logo2.svg",
+        "favicon.svg",
+        "pwa-192x192.png",
+        "pwa-512x512.png",
+      ],
+
       manifest: {
-        name: "CinemaPeedika",
-        short_name: "CinemaPeedika",
+        name: "Cinema Peedika",
+        short_name: "Cinema Peedika",
         description:
           "Explore, search, and discover movies from around the world.",
         theme_color: "#000000",
         background_color: "#000000",
         display: "standalone",
         start_url: "/",
+
         icons: [
           {
             src: "/pwa-192x192.png",

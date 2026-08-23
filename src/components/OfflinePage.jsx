@@ -18,7 +18,7 @@ function OfflinePage() {
           <span className="text-white">Cinema</span>
           <span className="text-red-500">Peedika</span>
         </h1> */}
-        <img src="logo2.svg" alt="" className="h-16" />
+        <img src="/logo2.svg" alt="Cinema Peedika" className="h-16" />
 
         {/* Title */}
         <h2 className="mt-6 text-2xl font-bold">You're Offline</h2>
