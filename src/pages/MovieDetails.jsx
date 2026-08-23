@@ -102,7 +102,7 @@ function MovieDetails() {
         <div className="relative mx-auto max-w-7xl px-6 py-10">
           {/* Back Button */}
           <Link
-            to="/search"
+            to="/"
             className="mb-10 inline-flex items-center gap-2 text-zinc-300 transition hover:text-white"
           >
             <ArrowLeft size={20} />
