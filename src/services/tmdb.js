@@ -178,4 +178,14 @@ export const getMovieTrailer = async (movieId) => {
   return trailer || null;
 };
 
+export const getPersonDetails = async (person_id) => {
+  const response = await fetch(`${BASE_URL}/person/${person_id}`, options);
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch person details");
+  }
+
+  const data = await response.json();
+
+  return data;
+};

@@ -7,6 +7,7 @@ import IndianMovies from "./pages/IndianMovies";
 import MalayalamMovies from "./pages/MalayalamMovies";
 import Search from "./pages/Search";
 import MovieDetails from "./pages/MovieDetails";
+import PersonDetails from "./components/PersonDetails";
 
 import Footer from "./components/footer";
 
@@ -37,6 +38,7 @@ export default function AppRoute() {
             <Route path="/malayalam-movies" element={<MalayalamMovies />} />
             <Route path="/search" element={<Search />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
+            <Route path="/person-details/:id" element={<PersonDetails />} />
           </Routes>
         </main>
 
