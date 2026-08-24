@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <Loader text="Loading CineScope..." />;
+    return <Loader text="Loading CinemaPeedika..." />;
   }
   return (
     <main className="min-h-screen bg-black">

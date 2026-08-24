@@ -8,7 +8,6 @@ export default function Loader({ text = "Loading..." }) {
 
           <div className="absolute inset-0 animate-spin rounded-full border-4 border-transparent border-t-red-500" />
         </div>
-
         {/* Logo */}
         {/* <h1 className="text-3xl font-bold tracking-tight">
           <span className="text-white">Cinema</span>
