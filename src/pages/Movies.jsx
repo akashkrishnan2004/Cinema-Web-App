@@ -4,7 +4,7 @@ import { getAllMovies } from "../services/tmdb";
 import MovieCard from "../components/MovieCard";
 import Loader from "../components/Loader";
 
-function Movies() {
+export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -97,4 +97,3 @@ function Movies() {
   );
 }
 
-export default Movies;

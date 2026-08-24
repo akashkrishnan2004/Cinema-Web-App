@@ -1,4 +1,4 @@
-function CrewCard({ person }) {
+export default function CrewCard({ person }) {
   const imageUrl = person.profile_path
     ? `https://image.tmdb.org/t/p/w300${person.profile_path}`
     : "/no-profile.png";
@@ -14,9 +14,7 @@ function CrewCard({ person }) {
       </div>
 
       <div className="p-3">
-        <h3 className="truncate font-semibold text-white">
-          {person.name}
-        </h3>
+        <h3 className="truncate font-semibold text-white">{person.name}</h3>
 
         <p className="mt-1 truncate text-sm text-zinc-500">
           {person.job || person.department || "Crew"}
@@ -25,5 +23,3 @@ function CrewCard({ person }) {
     </div>
   );
 }
-
-export default CrewCard;

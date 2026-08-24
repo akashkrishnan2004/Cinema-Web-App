@@ -4,7 +4,7 @@ import { Play, Info, Star } from "lucide-react";
 
 import { getTrendingMovie } from "../services/tmdb";
 
-function Hero() {
+export default function Hero() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -94,5 +94,3 @@ function Hero() {
     </section>
   );
 }
-
-export default Hero;

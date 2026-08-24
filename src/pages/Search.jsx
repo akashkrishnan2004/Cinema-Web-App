@@ -5,7 +5,7 @@ import { searchMovies } from "../services/tmdb";
 import MovieCard from "../components/MovieCard";
 import Loader from "../components/Loader";
 
-function Search() {
+export default function Search() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
 
@@ -178,4 +178,3 @@ function Search() {
   );
 }
 
-export default Search;

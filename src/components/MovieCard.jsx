@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 
-function MovieCard({ movie }) {
+export default function MovieCard({ movie }) {
   if (!movie || !movie.id) {
     console.warn("MovieCard received invalid movie:", movie);
     return null;
@@ -46,4 +46,3 @@ function MovieCard({ movie }) {
   );
 }
 
-export default MovieCard;

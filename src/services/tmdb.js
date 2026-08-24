@@ -177,3 +177,5 @@ export const getMovieTrailer = async (movieId) => {
 
   return trailer || null;
 };
+
+

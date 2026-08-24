@@ -4,7 +4,6 @@ import { links } from "../data/data";
 import { useState } from "react";
 
 export default function Footer() {
-
   // Share the link
   const [copied, setCopied] = useState(false);
 
@@ -41,7 +40,6 @@ export default function Footer() {
   return (
     <footer id="footer" className="relative bg-zinc-800 text-white pt-20 pb-10">
       {/* Top Wave Decoration */}
-
       <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-red-500 via-zinc-400 to-red-500"></div>
 
       <div className="max-w-7xl mx-auto px-6">
@@ -85,7 +83,11 @@ export default function Footer() {
 
             <div className=" flex flex-col space-y-4">
               {links.map((link) => (
-                <NavLink key={link.id} to={link.href} className="text-gray-300 hover:text-red-500 transition" >
+                <NavLink
+                  key={link.id}
+                  to={link.href}
+                  className="text-gray-300 hover:text-red-500 transition"
+                >
                   {link.name}
                 </NavLink>
               ))}
@@ -146,7 +148,6 @@ export default function Footer() {
             Made by
             <span className=" text-red-500 md:text-xs ">Akash</span>with
             <Heart size={15} color="#ff0000" />
-            {/* <FaHeart className="text-red-500 md:text-xs" /> */}
           </p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-function Loader({ text = "Loading..." }) {
+export default function Loader({ text = "Loading..." }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-black">
       <div className="flex flex-col items-center">
@@ -22,5 +22,3 @@ function Loader({ text = "Loading..." }) {
     </div>
   );
 }
-
-export default Loader;

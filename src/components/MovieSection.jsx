@@ -1,7 +1,7 @@
 import MovieCard from "./MovieCard";
 import SectionTitle from "./SectionTitle";
 
-function MovieSection({ title, movies, link }) {
+export default function MovieSection({ title, movies, link }) {
   return (
     <section className="mb-12">
       <SectionTitle title={title} link={link} />
@@ -14,5 +14,3 @@ function MovieSection({ title, movies, link }) {
     </section>
   );
 }
-
-export default MovieSection;

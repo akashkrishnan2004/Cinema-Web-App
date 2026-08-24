@@ -1,4 +1,4 @@
-function CastCard({ person }) {
+export default function CastCard({ person }) {
   const imageUrl = person.profile_path
     ? `https://image.tmdb.org/t/p/w300${person.profile_path}`
     : "/no-profile.png";
@@ -25,5 +25,3 @@ function CastCard({ person }) {
     </div>
   );
 }
-
-export default CastCard;

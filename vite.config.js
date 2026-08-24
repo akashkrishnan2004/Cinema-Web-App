@@ -1,11 +1,14 @@
 // import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
+// import react from "@vitejs/plugin-react"
+// import { VitePWA } from "vite-plugin-pwa";
 // import tailwindcss from "@tailwindcss/vite";
 
-// // https://vite.dev/config/
 // export default defineConfig({
-//   plugins: [react(), tailwindcss()],
-// });
+//   plugins: [
+//     react(),
+//     tailwindcss(),
+//   ]
+// })
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -21,6 +24,7 @@ export default defineConfig({
       registerType: "autoUpdate",
 
       includeAssets: [
+        "logo.svg",
         "logo2.svg",
         "favicon.svg",
         "pwa-192x192.png",

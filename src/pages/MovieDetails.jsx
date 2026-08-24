@@ -12,7 +12,7 @@ import Loader from "../components/Loader";
 import CastCard from "../components/CastCard";
 import CrewCard from "../components/CrewCard";
 
-function MovieDetails() {
+export default function MovieDetails() {
   const { id } = useParams();
   const USD_TO_INR = 95.7;
 
@@ -87,7 +87,7 @@ function MovieDetails() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero Background */}
+      {/* Hero Background Poster */}
       <section className="relative overflow-hidden">
         {backdropUrl && (
           <img
@@ -148,6 +148,7 @@ function MovieDetails() {
                   </span>
                 )}
 
+                {/* Film Certification */}
                 {certification && (
                   <span
                     className={`rounded border px-2 py-1 text-sm font-semibold ${
@@ -218,6 +219,7 @@ function MovieDetails() {
                 ? `${Math.round(movie.budget * USD_TO_INR).toLocaleString("en-IN")} ₹`
                 : "N/A"}
             </p>
+            {/* <p>{movie.budget}</p> */}
           </div>
 
           {/* <div className="rounded-xl bg-zinc-900 p-5">
@@ -335,5 +337,3 @@ function MovieDetails() {
     </main>
   );
 }
-
-export default MovieDetails;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
-function SectionTitle({ title, link }) {
+export default function SectionTitle({ title, link }) {
   return (
     <div className="mb-5 flex items-center justify-between">
       <h2 className="text-2xl font-bold text-white">
@@ -20,5 +20,3 @@ function SectionTitle({ title, link }) {
     </div>
   );
 }
-
-export default SectionTitle;

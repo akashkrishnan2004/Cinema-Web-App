@@ -12,7 +12,7 @@ import MovieSection from "../components/MovieSection";
 import Hero from "../components/Hero";
 import Loader from "../components/Loader";
 
-function Home() {
+export default function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
@@ -72,4 +72,3 @@ function Home() {
   );
 }
 
-export default Home;

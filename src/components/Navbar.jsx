@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { links } from "../data/data";
 
-function Navbar() {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinkClass = ({ isActive }) =>
@@ -81,4 +81,3 @@ function Navbar() {
   );
 }
 
-export default Navbar;

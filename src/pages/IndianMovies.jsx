@@ -4,7 +4,7 @@ import { getIndianMovies } from "../services/tmdb";
 import MovieCard from "../components/MovieCard";
 import Loader from "../components/Loader";
 
-function IndianMovies() {
+export default function IndianMovies() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -97,4 +97,3 @@ function IndianMovies() {
   );
 }
 
-export default IndianMovies;

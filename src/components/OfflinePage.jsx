@@ -1,6 +1,6 @@
 import { WifiOff, RefreshCw } from "lucide-react";
 
-function OfflinePage() {
+export default function OfflinePage() {
   const handleRetry = () => {
     window.location.reload();
   };
@@ -42,4 +42,3 @@ function OfflinePage() {
   );
 }
 
-export default OfflinePage;
