@@ -272,7 +272,12 @@ export default function MovieDetails() {
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {movie.credits?.cast?.slice(0, 12).map((person) => (
-            <CastCard key={person.credit_id} person={person} />
+            <CastCard
+              key={person.credit_id}
+              person={person}
+              cast={movie.credits?.cast}
+              movieId={movie.id}
+            />
           ))}
         </div>
       </section>
@@ -298,7 +303,12 @@ export default function MovieDetails() {
             )
             .slice(0, 12)
             .map((person) => (
-              <CrewCard key={`${person.id}-${person.job}`} person={person} />
+              <CrewCard
+                key={`${person.id}-${person.job}`}
+                person={person}
+                crew={movie.credits?.crew}
+                movieId={movie.id}
+              />
             ))}
         </div>
       </section>

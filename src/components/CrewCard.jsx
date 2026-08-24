@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CrewCard({ person }) {
+export default function CrewCard({ person, crew, movieId }) {
   const imageUrl = person.profile_path
     ? `https://image.tmdb.org/t/p/w300${person.profile_path}`
     : "/no-profile.png";
@@ -8,7 +8,10 @@ export default function CrewCard({ person }) {
   console.log(person.id);
 
   return (
-    <Link to={`/person-details/${person.id}`}>
+    <Link
+      to={`/person-details/${person.id}`}
+      state={{ from: `/movie/${movieId}` }}
+    >
       <div className="group overflow-hidden rounded-xl bg-zinc-900">
         <div className="aspect-2/3 overflow-hidden">
           <img

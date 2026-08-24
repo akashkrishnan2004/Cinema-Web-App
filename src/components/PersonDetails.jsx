@@ -92,13 +92,13 @@ export default function PersonDetails() {
         <div className="absolute inset-0 bg-linear-to-b from-zinc-900/60 via-black to-black" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-10">
-          {/* Back Button */}
+          {/* Back Button to Current Movie Page */}
           <Link
             to={backPath}
             className="mb-10 inline-flex items-center gap-2 text-zinc-400 transition hover:text-white"
           >
             <ArrowLeft size={20} />
-            Back
+            Back to Movie
           </Link>
 
           {/* Profile */}
