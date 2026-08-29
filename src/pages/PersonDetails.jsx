@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { getPersonDetails } from "../services/tmdb";
-import Loader from "./Loader";
+import Loader from "../components/Loader";
 
 export default function PersonDetails() {
   const { id } = useParams();

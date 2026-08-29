@@ -10,7 +10,7 @@ export default function CastCard({ person, cast, movieId }) {
     return null;
   }
 
-  console.log(person.id);
+  // console.log(person.id);
   // console.log(person.name);
 
   return (
@@ -29,7 +29,6 @@ export default function CastCard({ person, cast, movieId }) {
 
         <div className="p-3">
           <h3 className="truncate font-semibold text-white">{person.name}</h3>
-
           <p className="mt-1 truncate text-sm text-zinc-500">
             {person.character || "Unknown Character"}
           </p>

@@ -189,3 +189,18 @@ export const getPersonDetails = async (person_id) => {
 
   return data;
 };
+
+// export const getProductionDetails = async (Production_id) => {
+//   const response = await fetch(
+//     `${BASE_URL}/production/${Production_id}`,
+//     options,
+//   );
+
+//   if (!response.ok) {
+//     throw new Error("Failed to fetch Production Company details");
+//   }
+
+//   const data = await response.json();
+
+//   return data;
+// };

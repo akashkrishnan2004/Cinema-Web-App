@@ -11,6 +11,7 @@ import {
 import Loader from "../components/Loader";
 import CastCard from "../components/CastCard";
 import CrewCard from "../components/CrewCard";
+import ProductionCard from "../components/ProductionCard";
 
 export default function MovieDetails() {
   const { id } = useParams();
@@ -263,7 +264,7 @@ export default function MovieDetails() {
         </section>
       )}
 
-      {/* Cast */}
+      {/* Cast Card */}
       <section className="mx-auto max-w-7xl px-6 py-12">
         <div className="mb-6">
           <h2 className="text-2xl font-bold">Cast</h2>
@@ -272,18 +273,26 @@ export default function MovieDetails() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {movie.credits?.cast?.slice(0, 12).map((person) => (
-            <CastCard
-              key={person.credit_id}
-              person={person}
-              cast={movie.credits?.cast}
-              movieId={movie.id}
-            />
-          ))}
+          {movie.credits?.cast?.length > 0 ? (
+            movie.credits.cast
+              .slice(0, 12)
+              .map((person) => (
+                <CastCard
+                  key={person.credit_id}
+                  person={person}
+                  cast={movie.credits.cast}
+                  movieId={movie.id}
+                />
+              ))
+          ) : (
+            <p className="col-span-full py-5 text-zinc-500 hover:text-red-500">
+              No cast information available.
+            </p>
+          )}
         </div>
       </section>
 
-      {/* Crew */}
+      {/* Crew Card */}
       <section className="mx-auto max-w-7xl px-6 py-12">
         <div className="mb-6">
           <h2 className="text-2xl font-bold">Crew</h2>
@@ -294,54 +303,39 @@ export default function MovieDetails() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {movie.credits?.crew
-            ?.filter(
-              (person, index, self) =>
-                index ===
-                self.findIndex(
-                  (item) => item.id === person.id && item.job === person.job,
-                ),
-            )
-            .slice(0, 12)
-            .map((person) => (
-              <CrewCard
-                key={`${person.id}-${person.job}`}
-                person={person}
-                crew={movie.credits?.crew}
-                movieId={movie.id}
-              />
-            ))}
+          {movie.credit_id?.cast?.length > 0 ? (
+            movie.credits?.crew
+              ?.filter(
+                (person, index, self) =>
+                  index ===
+                  self.findIndex(
+                    (item) => item.id === person.id && item.job === person.job,
+                  ),
+              )
+              .slice(0, 12)
+              .map((person) => (
+                <CrewCard
+                  key={`${person.id}-${person.job}`}
+                  person={person}
+                  crew={movie.credits?.crew}
+                  movieId={movie.id}
+                />
+              ))
+          ) : (
+            <p className="col-span-full py-5 text-zinc-500  hover:text-red-500">
+              No crew information available.
+            </p>
+          )}
         </div>
       </section>
 
       {/* Production Information */}
       <section className="mx-auto max-w-7xl px-6 py-12">
-        <h2 className="mb-6 text-2xl font-bold text-white">
-          Production Companies
-        </h2>
+        <h2 className="mb-5 text-2xl font-bold">Production Companies</h2>
 
-        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+        <div className="flex flex-wrap gap-4">
           {movie.production_companies?.map((company) => (
-            <div
-              key={company.id}
-              className="flex min-h-25 min-w-45 flex-col items-center justify-center rounded-xl border border-zinc-800 bg-zinc-500 p-5"
-            >
-              {company.logo_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
-                  alt={company.name}
-                  className="mb-3 max-h-12 max-w-35 object-contain"
-                />
-              ) : (
-                <div className="mb-3 flex h-12 items-center text-sm text-zinc-500">
-                  No Logo
-                </div>
-              )}
-
-              <p className="text-center text-sm font-medium text-zinc-300">
-                {company.name}
-              </p>
-            </div>
+            <ProductionCard key={company.id} company={company} />
           ))}
         </div>
       </section>

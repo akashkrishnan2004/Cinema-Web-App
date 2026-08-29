@@ -5,7 +5,7 @@ export default function CrewCard({ person, crew, movieId }) {
     ? `https://image.tmdb.org/t/p/w300${person.profile_path}`
     : "/no-profile.png";
 
-  console.log(person.id);
+  // console.log(person.id);
 
   return (
     <Link

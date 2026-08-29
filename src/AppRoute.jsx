@@ -7,15 +7,14 @@ import IndianMovies from "./pages/IndianMovies";
 import MalayalamMovies from "./pages/MalayalamMovies";
 import Search from "./pages/Search";
 import MovieDetails from "./pages/MovieDetails";
-import PersonDetails from "./components/PersonDetails";
-
+import PersonDetails from "./pages/PersonDetails";
 import Footer from "./components/footer";
 
 import useOnline from "./hooks/useOnline";
 import OfflinePage from "./components/OfflinePage";
+import ProductionDetails from "./pages/ProductionDetails";
 
 import ScrollToTop from "./components/ScrollToTop";
-import FloatingNav from "./components/FloatingNav";
 
 export default function AppRoute() {
   const isOnline = useOnline();
@@ -40,10 +39,13 @@ export default function AppRoute() {
             <Route path="/search" element={<Search />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/person-details/:id" element={<PersonDetails />} />
+            <Route
+              path="/production-details/:id"
+              element={<ProductionDetails />}
+            />
           </Routes>
         </main>
 
-        {/* <FloatingNav /> */}
         <Footer />
       </div>
     </BrowserRouter>
