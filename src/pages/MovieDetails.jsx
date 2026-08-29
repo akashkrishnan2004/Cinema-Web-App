@@ -103,7 +103,8 @@ export default function MovieDetails() {
           {/* Back Button */}
           <Link
             to="/"
-            className="mb-10 inline-flex items-center gap-2 text-zinc-300 transition hover:text-white"
+            // className="mb-10 inline-flex items-center gap-2 text-zinc-300 transition hover:text-white"
+            className="mb-10 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-2 text-sm font-medium text-red-400 shadow-lg shadow-red-500/10 backdrop-blur-xl transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/20 hover:text-red-300 hover:shadow-red-500/20"
           >
             <ArrowLeft size={20} />
             Back
