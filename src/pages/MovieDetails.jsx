@@ -93,7 +93,7 @@ export default function MovieDetails() {
           <img
             src={backdropUrl}
             alt={movie.title}
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover opacity-70"
           />
         )}
 
