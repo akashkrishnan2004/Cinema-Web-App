@@ -15,6 +15,7 @@ import useOnline from "./hooks/useOnline";
 import OfflinePage from "./components/OfflinePage";
 
 import ScrollToTop from "./components/ScrollToTop";
+import FloatingNav from "./components/FloatingNav";
 
 export default function AppRoute() {
   const isOnline = useOnline();
@@ -42,6 +43,7 @@ export default function AppRoute() {
           </Routes>
         </main>
 
+        {/* <FloatingNav /> */}
         <Footer />
       </div>
     </BrowserRouter>
