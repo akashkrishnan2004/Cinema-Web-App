@@ -133,36 +133,40 @@ export default function PersonDetails() {
               {/* Basic Information */}
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-4 text-sm">
                 {/* Birthday */}
-                {person.birthday && (
+                {
                   <div className="flex items-center gap-2 text-zinc-400">
                     <CalendarDays size={17} className="text-red-500" />
-
-                    <div>
-                      <span className="text-zinc-500">Born: </span>
-                      <span className="text-zinc-200">
-                        {formatBirthday(person.birthday)}
-                      </span>
-                    </div>
+                    {person.birthday ? (
+                      <div>
+                        <span className="text-zinc-500">Born: </span>
+                        <span className="text-zinc-200">
+                          {formatBirthday(person.birthday)}
+                        </span>
+                      </div>
+                    ) : (
+                      <p className="text-zinc-500">N/A</p>
+                    )}
                   </div>
-                )}
+                }
 
                 {/* Place of Birth */}
-                {person.place_of_birth && (
-                  <div className="flex items-center gap-2 text-zinc-400">
-                    <MapPin size={17} className="text-red-500" />
-
+                <div className="flex items-center gap-2 text-zinc-400">
+                  <MapPin size={17} className="text-red-500" />
+                  {person.place_of_birth ? (
                     <div>
                       <span className="text-zinc-500">Birthplace: </span>
                       <span className="text-zinc-200">
                         {person.place_of_birth}
                       </span>
                     </div>
-                  </div>
-                )}
+                  ) : (
+                    <p className="text-zinc-500">N/A</p>
+                  )}
+                </div>
 
+                {/* Official Website */}
                 <div className="flex items-center gap-2">
                   <Globe size={17} className="text-red-500" />
-
                   {person.homepage ? (
                     <a
                       href={person.homepage}
