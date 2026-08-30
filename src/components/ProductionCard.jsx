@@ -16,7 +16,7 @@ export default function ProductionCard({ company, movieId }) {
         from: `/movie/${movieId}`,
       }}
     >
-      <div className="flex min-h-28 min-w-48 flex-col items-center justify-center rounded-xl border border-zinc-800 bg-zinc-500 p-4 transition hover:border-red-500/50 hover:bg-zinc-700">
+      <div className="flex min-h-28 min-w-48 flex-col items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 p-4 transition hover:border-red-500/50 hover:bg-zinc-800">
         {logo ? (
           <img
             src={logo}
@@ -24,18 +24,12 @@ export default function ProductionCard({ company, movieId }) {
             className="mb-3 h-10 max-w-30 object-contain"
           />
         ) : (
-          <Building2 size={30} className="mb-3 text-zinc-900" />
+          <Building2 size={30} className="mb-3 text-zinc-300" />
         )}
 
         <p className="text-center text-sm font-medium text-zinc-300">
           {company.name}
         </p>
-
-        {/* {company.origin_country && (
-          <span className="mt-1 text-xs text-zinc-500">
-            {company.origin_country}
-          </span>
-        )} */}
       </div>
     </Link>
   );

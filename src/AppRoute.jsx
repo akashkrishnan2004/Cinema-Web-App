@@ -8,7 +8,7 @@ import MalayalamMovies from "./pages/MalayalamMovies";
 import Search from "./pages/Search";
 import MovieDetails from "./pages/MovieDetails";
 import PersonDetails from "./pages/PersonDetails";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 import useOnline from "./hooks/useOnline";
 import OfflinePage from "./components/OfflinePage";

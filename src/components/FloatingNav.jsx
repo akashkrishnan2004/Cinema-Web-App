@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 const FloatingNav = () => {
   const location = useLocation();
 
-  const items = [
+  const floatNavItems = [
     {
       id: 0,
       icon: Home,
@@ -28,7 +28,7 @@ const FloatingNav = () => {
   ];
 
   // Find active item based on current URL
-  const activeIndex = items.findIndex(
+  const activeIndex = floatNavItems.findIndex(
     (item) => item.href === location.pathname,
   );
 
@@ -107,7 +107,7 @@ const FloatingNav = () => {
           "
         />
 
-        {items.map((item, index) => {
+        {floatNavItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = active === index;
 

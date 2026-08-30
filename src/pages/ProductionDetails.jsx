@@ -14,8 +14,8 @@ export default function ProductionDetails() {
   const backPath = location.state?.from || "/";
   const company = location.state?.company;
 
-  console.log("Production ID:", id);
-  console.log("COMPANY:", company);
+  // console.log("Production ID:", id);
+  // console.log("COMPANY:", company);
 
   // TMDB image URL
   const logoUrl = company?.logo_path
@@ -83,7 +83,7 @@ export default function ProductionDetails() {
                 {/* Glow */}
                 <div className="absolute -inset-4 rounded-4xl bg-red-600/10 blur-2xl" />
 
-                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-700 p-8 shadow-2xl">
+                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900  p-8 shadow-2xl hover:bg-zinc-800">
                   {logoUrl ? (
                     <img
                       src={logoUrl}
@@ -94,7 +94,7 @@ export default function ProductionDetails() {
                     <Building2
                       size={80}
                       strokeWidth={1}
-                      className="text-zinc-700"
+                      className="text-zinc-900"
                     />
                   )}
                 </div>

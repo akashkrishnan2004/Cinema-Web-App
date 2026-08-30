@@ -78,7 +78,7 @@ export default function CrewCard({ person, movieId }) {
       to={`/person-details/${person.id}`}
       state={{ from: `/movie/${movieId}` }}
     >
-      <div className="group overflow-hidden rounded-xl bg-zinc-900">
+      <div className="group overflow-hidden rounded-xl bg-zinc-900 hover:bg-zinc-800">
         <div className="aspect-2/3 overflow-hidden">
           <img
             src={imageUrl}
