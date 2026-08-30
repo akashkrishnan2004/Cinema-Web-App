@@ -6,7 +6,7 @@ export default function ProductionCard({ company, movieId }) {
     ? `https://image.tmdb.org/t/p/w200${company.logo_path}`
     : null;
 
-  console.log(company.id);
+  // console.log(company.id);
 
   return (
     <Link

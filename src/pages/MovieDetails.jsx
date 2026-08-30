@@ -241,18 +241,6 @@ export default function MovieDetails() {
                 : "N/A"}
             </p>
           </div>
-
-          {/* Ott */}
-          <div className="rounded-xl bg-zinc-900 p-5">
-            <p className="text-sm text-zinc-500">OTT</p>
-            {/* <p className="mt-2 font-semibold">
-              {
-                ottProvider.map((provider, index) => (
-                  <p>{provider.name}</p>
-                ))
-              }
-            </p> */}
-          </div>
         </div>
       </section>
 
@@ -319,9 +307,9 @@ export default function MovieDetails() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {movie.credit_id?.cast?.length > 0 ? (
-            movie.credits?.crew
-              ?.filter(
+          {movie.credits?.crew?.length > 0 ? (
+            movie.credits.crew
+              .filter(
                 (person, index, self) =>
                   index ===
                   self.findIndex(
@@ -333,14 +321,48 @@ export default function MovieDetails() {
                 <CrewCard
                   key={`${person.id}-${person.job}`}
                   person={person}
-                  crew={movie.credits?.crew}
                   movieId={movie.id}
                 />
               ))
           ) : (
-            <p className="col-span-full py-5 text-zinc-500  hover:text-red-500">
+            <p className="col-span-full py-5 text-zinc-500 hover:text-red-500">
               No crew information available.
             </p>
+          )}
+        </div>
+      </section>
+
+      {/* Production Information */}
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <h2 className="mb-5 text-2xl font-bold">Production Companies</h2>
+        {/* <div className="flex flex-wrap gap-4">
+          {movie.production_companies?.length > 0 ? (
+            movie.production_companies.map((company) => (
+              <ProductionCard
+                key={company.id}
+                company={company}
+                movieId={movie.id}
+              />
+            ))
+          ) : (
+            <p className="text-zinc-500">No production companies available.</p>
+          )}
+        </div> */}
+        <div className="flex flex-wrap gap-4">
+          {movie.production_companies?.length > 0 ? (
+            movie.production_companies.map((company) => (
+              <ProductionCard
+                key={company.id}
+                company={company}
+                movieId={movie.id}
+              />
+            ))
+          ) : (
+            <div className="w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-5 py-6 text-center">
+              <p className="text-sm text-zinc-500">
+                No production companies available.
+              </p>
+            </div>
           )}
         </div>
       </section>
@@ -406,24 +428,6 @@ export default function MovieDetails() {
               No watch providers available in India.
             </p>
           )}
-      </section>
-
-      {/* Production Information */}
-      <section className="mx-auto max-w-7xl px-6 py-12">
-        <h2 className="mb-5 text-2xl font-bold">Production Companies</h2>
-        <div className="flex flex-wrap gap-4">
-          {movie.production_companies?.length > 0 ? (
-            movie.production_companies.map((company) => (
-              <ProductionCard
-                key={company.id}
-                company={company}
-                movieId={movie.id}
-              />
-            ))
-          ) : (
-            <p className="text-zinc-500">No production companies available.</p>
-          )}
-        </div>
       </section>
     </main>
   );

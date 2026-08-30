@@ -14,7 +14,7 @@ import Loader from "../components/Loader";
 
 export default function PersonDetails() {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const location = useLocation();
   const backPath = location.state?.from || "/";
@@ -28,7 +28,7 @@ export default function PersonDetails() {
         setLoading(true);
 
         const data = await getPersonDetails(id);
-        console.log(data);
+        // console.log(data);
 
         setPerson(data);
       } catch (error) {
@@ -71,7 +71,7 @@ export default function PersonDetails() {
 
   const profileImage = person.profile_path
     ? `https://image.tmdb.org/t/p/h632${person.profile_path}`
-    : "/no-poster.png";
+    : "/no-profile.png";
 
   const formatBirthday = (date) => {
     if (!date) return "Unknown";

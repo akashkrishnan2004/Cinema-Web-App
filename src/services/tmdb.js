@@ -190,8 +190,6 @@ export const getPersonDetails = async (person_id) => {
   return data;
 };
 
-// https://api.themoviedb.org/3/movie/{movie_id}/watch/providers
-
 export const getMovieWatchProviders  = async (movie_id) => {
   const response = await fetch(
     `${BASE_URL}/movie/${movie_id}/watch/providers`,
