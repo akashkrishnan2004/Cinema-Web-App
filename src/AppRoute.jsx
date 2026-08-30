@@ -25,7 +25,7 @@ export default function AppRoute() {
 
   return (
     <BrowserRouter>
-      <div className="flex min-h-screen flex-col bg-black pb-20 md:pb-0">
+      <div className="flex min-h-screen flex-col bg-zinc-800 pb-20 md:pb-0">
         <ScrollToTop />
 
         <Navbar />
