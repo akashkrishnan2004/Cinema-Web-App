@@ -6,12 +6,14 @@ import {
   getIndianCertification,
   getMovieDetails,
   getMovieTrailer,
+  getMovieWatchProviders,
 } from "../services/tmdb";
 
 import Loader from "../components/Loader";
 import CastCard from "../components/CastCard";
 import CrewCard from "../components/CrewCard";
 import ProductionCard from "../components/ProductionCard";
+import OttProviderCard from "../components/OttProviderCard";
 
 export default function MovieDetails() {
   const { id } = useParams();
@@ -21,6 +23,7 @@ export default function MovieDetails() {
   const [loading, setLoading] = useState(true);
   const [certification, setCertification] = useState(null);
   const [trailer, setTrailer] = useState(null);
+  const [providers, setProviders] = useState(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -28,13 +31,14 @@ export default function MovieDetails() {
         setLoading(true);
 
         const data = await getMovieDetails(id);
-
         setMovie(data);
 
         const trailerData = await getMovieTrailer(id);
         // console.log(trailerData);
-
         setTrailer(trailerData);
+
+        const providerData = await getMovieWatchProviders(id);
+        setProviders(providerData.results?.IN || null);
       } catch (error) {
         console.error(error);
       } finally {
@@ -237,6 +241,18 @@ export default function MovieDetails() {
                 : "N/A"}
             </p>
           </div>
+
+          {/* Ott */}
+          <div className="rounded-xl bg-zinc-900 p-5">
+            <p className="text-sm text-zinc-500">OTT</p>
+            {/* <p className="mt-2 font-semibold">
+              {
+                ottProvider.map((provider, index) => (
+                  <p>{provider.name}</p>
+                ))
+              }
+            </p> */}
+          </div>
         </div>
       </section>
 
@@ -329,14 +345,84 @@ export default function MovieDetails() {
         </div>
       </section>
 
+      {/* Ott Information */}
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <h2 className="mb-6 text-2xl font-bold">Where to Watch</h2>
+
+        {/* Streaming */}
+        {providers?.flatrate?.length > 0 && (
+          <div className="mb-8">
+            <h3 className="mb-4 text-lg font-semibold text-zinc-300">
+              Streaming
+            </h3>
+
+            <div className="flex flex-wrap gap-4">
+              {providers.flatrate.map((provider) => (
+                <OttProviderCard
+                  key={provider.provider_id}
+                  provider={provider}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Rent */}
+        {providers?.rent?.length > 0 && (
+          <div className="mb-8">
+            <h3 className="mb-4 text-lg font-semibold text-zinc-300">Rent</h3>
+
+            <div className="flex flex-wrap gap-4">
+              {providers.rent.map((provider) => (
+                <OttProviderCard
+                  key={provider.provider_id}
+                  provider={provider}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Buy */}
+        {providers?.buy?.length > 0 && (
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-zinc-300">Buy</h3>
+
+            <div className="flex flex-wrap gap-4">
+              {providers.buy.map((provider) => (
+                <OttProviderCard
+                  key={provider.provider_id}
+                  provider={provider}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {!providers?.flatrate?.length &&
+          !providers?.rent?.length &&
+          !providers?.buy?.length && (
+            <p className="text-zinc-500">
+              No watch providers available in India.
+            </p>
+          )}
+      </section>
+
       {/* Production Information */}
       <section className="mx-auto max-w-7xl px-6 py-12">
         <h2 className="mb-5 text-2xl font-bold">Production Companies</h2>
-
         <div className="flex flex-wrap gap-4">
-          {movie.production_companies?.map((company) => (
-            <ProductionCard key={company.id} company={company} />
-          ))}
+          {movie.production_companies?.length > 0 ? (
+            movie.production_companies.map((company) => (
+              <ProductionCard
+                key={company.id}
+                company={company}
+                movieId={movie.id}
+              />
+            ))
+          ) : (
+            <p className="text-zinc-500">No production companies available.</p>
+          )}
         </div>
       </section>
     </main>

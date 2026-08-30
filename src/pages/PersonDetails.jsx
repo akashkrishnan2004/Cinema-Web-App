@@ -17,7 +17,6 @@ export default function PersonDetails() {
   console.log(id);
 
   const location = useLocation();
-
   const backPath = location.state?.from || "/";
 
   const [loading, setLoading] = useState(true);
