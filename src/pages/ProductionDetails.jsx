@@ -94,7 +94,7 @@ export default function ProductionDetails() {
                     <Building2
                       size={80}
                       strokeWidth={1}
-                      className="text-zinc-900"
+                      className="text-zinc-300"
                     />
                   )}
                 </div>
