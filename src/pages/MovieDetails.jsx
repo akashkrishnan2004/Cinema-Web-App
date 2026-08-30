@@ -335,19 +335,7 @@ export default function MovieDetails() {
       {/* Production Information */}
       <section className="mx-auto max-w-7xl px-6 py-12">
         <h2 className="mb-5 text-2xl font-bold">Production Companies</h2>
-        {/* <div className="flex flex-wrap gap-4">
-          {movie.production_companies?.length > 0 ? (
-            movie.production_companies.map((company) => (
-              <ProductionCard
-                key={company.id}
-                company={company}
-                movieId={movie.id}
-              />
-            ))
-          ) : (
-            <p className="text-zinc-500">No production companies available.</p>
-          )}
-        </div> */}
+        
         <div className="flex flex-wrap gap-4">
           {movie.production_companies?.length > 0 ? (
             movie.production_companies.map((company) => (
@@ -359,7 +347,7 @@ export default function MovieDetails() {
             ))
           ) : (
             <div className="w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-5 py-6 text-center">
-              <p className="text-sm text-zinc-500">
+              <p className="text-sm text-zinc-500 hover:text-red-500">
                 No production companies available.
               </p>
             </div>
@@ -424,7 +412,7 @@ export default function MovieDetails() {
         {!providers?.flatrate?.length &&
           !providers?.rent?.length &&
           !providers?.buy?.length && (
-            <p className="text-zinc-500">
+            <p className="text-zinc-500 hover:text-red-500">
               No watch providers available in India.
             </p>
           )}
