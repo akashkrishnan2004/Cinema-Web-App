@@ -1,31 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Home, Search, Film } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { floatNavItems } from "../data/data";
 
 const FloatingNav = () => {
   const location = useLocation();
-
-  const floatNavItems = [
-    {
-      id: 0,
-      icon: Home,
-      label: "Home",
-      href: "/",
-    },
-    {
-      id: 1,
-      icon: Film,
-      label: "Indian Cinema",
-      href: "/indian-movies",
-    },
-    {
-      id: 2,
-      icon: Search,
-      label: "Search",
-      href: "/search",
-    },
-  ];
 
   // Find active item based on current URL
   const activeIndex = floatNavItems.findIndex(
@@ -110,6 +89,7 @@ const FloatingNav = () => {
         {floatNavItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = active === index;
+          // console.log(Icon);
 
           return (
             <Link

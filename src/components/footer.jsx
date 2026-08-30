@@ -1,4 +1,4 @@
-import { Check, Heart, Share2 } from "lucide-react";
+import { ArrowUp, Check, Heart, Share2 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { links } from "../data/data";
 import { useState } from "react";
@@ -30,12 +30,12 @@ export default function Footer() {
       console.log(error);
     }
   };
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const scrollTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <footer id="footer" className="relative bg-zinc-800 text-white pt-20 pb-10">
@@ -112,9 +112,9 @@ export default function Footer() {
 
             {/* <button
               onClick={scrollTop}
-              className="mt-10 bg-yellow-400 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition flex items-center gap-2"
+              className="mt-10 bg-red-500 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition flex items-center gap-2"
             >
-              <HiArrowUp />
+              <ArrowUp />
               Back to Top
             </button> */}
 
