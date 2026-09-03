@@ -146,7 +146,17 @@ export default function Footer() {
 
           <p className="flex items-center gap-2 text-gray-400 md:text-xs">
             Made by
-            <span className=" text-red-500 md:text-xs ">Akash</span>with
+            <span className=" text-red-500 md:text-xs ">
+              <a
+                href="https://akashkrishnan-portfolio.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Akash Krishnan
+              </a>
+            </span>
+            with
             <Heart size={15} color="#ff0000" />
           </p>
         </div>
